@@ -1,6 +1,6 @@
 {% set name = "zasper" %}
-{% set version = "0.2.0b0" %}
-{% set tag = "v0.2.0-beta" %}
+{% set version = "1.0.0" %}
+{% set tag = "v1.0.0" %}
 
 
 package:
@@ -9,13 +9,15 @@ package:
 
 source:
   url: https://github.com/zasper-io/zasper/archive/refs/tags/{{ tag }}.tar.gz
-  sha256: a5731242428ac92ac57d04a63ade9267e71327c61fbc8e8b58e2821f93ca1768
+  sha256: 5baa91daa0aad78468de767ba3aca7a63c9b7ddfca81dc34098ce2c244ba206e
 
 
 build:
   number: 0
   script:
-    - go-licenses save . --save_path=license-files --ignore github.com/zasper-io/zasper
+    # go-licenses skips every dependency as standard library unless GOROOT is set
+    - export GOROOT=$(go env GOROOT) && go-licenses save . --save_path=license-files --ignore github.com/zasper-io/zasper  # [unix]
+    - go-licenses save . --save_path=license-files --ignore github.com/zasper-io/zasper  # [win]
     - make init
     - make build
     - install -m755 zasper "$PREFIX/bin/zasper"  # [not win]
@@ -26,8 +28,8 @@ build:
 
 requirements:
   build:
-    - go >=1.21
-    - nodejs >=18
+    - go >=1.25
+    - nodejs >=22.12
     - make
     - go-licenses
   run:
@@ -36,7 +38,7 @@ requirements:
 
 test:
   commands:
-    - zasper --help
+    - zasper --version
 
 about:
   home: https://github.com/zasper-io/zasper

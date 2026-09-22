@@ -1,6 +1,6 @@
 {% set name = "zasper" %}
-{% set version = "1.1.0" %}
-{% set tag = "v1.1.0" %}
+{% set version = "2.0.0" %}
+{% set tag = "v2.0.0" %}
 
 
 package:
@@ -9,7 +9,7 @@ package:
 
 source:
   url: https://github.com/zasper-io/zasper/archive/refs/tags/{{ tag }}.tar.gz
-  sha256: 593eee4f771890b34c342dc0cb0e784780135448cd7c8f50db2ddef2038a88cc
+  sha256: 22db95b675193c1cddc440c445b1338f3fbc9385578d000e822dc928a36835c8
 
 
 build:
@@ -28,7 +28,7 @@ build:
 
 requirements:
   build:
-    - go >=1.25
+    - go >=1.26
     - nodejs >=22.12
     - make
     - go-licenses

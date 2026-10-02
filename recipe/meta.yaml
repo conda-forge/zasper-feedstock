@@ -13,7 +13,7 @@ source:
 
 
 build:
-  number: 0
+  number: 1
   script:
     # go-licenses skips every dependency as standard library unless GOROOT is set
     - export GOROOT=$(go env GOROOT) && go-licenses save . --save_path=license-files --ignore github.com/zasper-io/zasper  # [unix]
@@ -28,7 +28,7 @@ build:
 
 requirements:
   build:
-    - go >=1.26
+    - {{ compiler("go-nocgo") }} >=1.26
     - nodejs >=22.12
     - make
     - go-licenses

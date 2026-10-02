@@ -20,7 +20,9 @@ build:
     - go-licenses save . --save_path=license-files --ignore github.com/zasper-io/zasper  # [win]
     - make init
     - make build
+    - mkdir -p "$PREFIX/bin"  # [not win]
     - install -m755 zasper "$PREFIX/bin/zasper"  # [not win]
+    - if not exist %PREFIX%\bin mkdir %PREFIX%\bin  # [win]
     - copy /Y zasper.exe %PREFIX%\bin\zasper.exe  # [win]
     # Clear out cache to avoid file not removable warnings
     - chmod -R u+w $(go env GOPATH) && rm -r $(go env GOPATH)  # [unix]

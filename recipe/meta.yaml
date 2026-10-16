@@ -1,6 +1,6 @@
 {% set name = "zasper" %}
-{% set version = "2.0.0" %}
-{% set tag = "v2.0.0" %}
+{% set version = "2.1.0" %}
+{% set tag = "v2.1.0" %}
 
 
 package:
@@ -9,11 +9,11 @@ package:
 
 source:
   url: https://github.com/zasper-io/zasper/archive/refs/tags/{{ tag }}.tar.gz
-  sha256: 22db95b675193c1cddc440c445b1338f3fbc9385578d000e822dc928a36835c8
+  sha256: f735df4376b180bdcc1b9748827f006acb3529f24771dc73b8127753b87f837c
 
 
 build:
-  number: 1
+  number: 0
   script:
     # go-licenses skips every dependency as standard library unless GOROOT is set
     - export GOROOT=$(go env GOROOT) && go-licenses save . --save_path=license-files --ignore github.com/zasper-io/zasper  # [unix]

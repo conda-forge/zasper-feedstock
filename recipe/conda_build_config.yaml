@@ -1,0 +1,4 @@
+# The Go that builds this, 1.27, links for macOS 13 at the oldest, so the package must not install on
+# anything older.
+c_stdlib_version:   # [osx]
+  - "13.0"          # [osx]

@@ -1,6 +1,6 @@
 {% set name = "zasper" %}
-{% set version = "2.2.0" %}
-{% set tag = "v2.2.0" %}
+{% set version = "2.3.0" %}
+{% set tag = "v2.3.0" %}
 
 
 package:
@@ -9,7 +9,7 @@ package:
 
 source:
   url: https://github.com/zasper-io/zasper/archive/refs/tags/{{ tag }}.tar.gz
-  sha256: 552fc25b52d8de92d269132641d99e85fa4fb064314a05ff6022d22de287015e
+  sha256: b5fffaa512544ac6a063fddfdcfbf9c45f0a1c17b45f308943d889508d704de8
 
 
 build:
